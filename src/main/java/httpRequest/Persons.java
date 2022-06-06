@@ -1,6 +1,5 @@
 package httpRequest;
 
-import dto.User;
 import io.restassured.response.Response;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -17,8 +16,8 @@ public class Persons extends Base {
         return getRequestSpecification().when().get(usersURL + "/" + id);
     }
 
-    public Response createPerson(User person) {
-        return getRequestSpecification().when().body(person).post();
+    public Response createPerson() {
+        return getRequestSpecification().when().body("").post();
     }
 
 }
