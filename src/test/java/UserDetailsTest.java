@@ -1,13 +1,15 @@
-import dto.PersonDetails;
-import dto.UserDetails;
-import httpRequest.Persons;
-import httpRequest.ProUser;
-import httpRequest.Users;
-import io.restassured.path.json.JsonPath;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
 
-import static org.testng.Assert.assertEquals;
+
+import dto.PersonDetails;
+        import dto.UserDetails;
+        import httpRequest.Persons;
+        import httpRequest.ProUser;
+        import httpRequest.Users;
+        import io.restassured.path.json.JsonPath;
+        import org.testng.annotations.BeforeTest;
+        import org.testng.annotations.Test;
+
+        import static org.testng.Assert.assertEquals;
 
 
 public class UserDetailsTest {
@@ -65,6 +67,9 @@ public class UserDetailsTest {
                 .statusCode(404)
                 .extract().jsonPath();
     }
+
+    @Test
+    public void deleteUser(){
+
+    }
 }
-
-
