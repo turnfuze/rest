@@ -11,17 +11,15 @@ import lombok.ToString;
 public class Users extends Base {
 
     private static final String usersURL = "api/users";
-   private static final String postRequest = "{\n" +
-           "    \"name\": \"morpheus\",\n" +
-           "    \"job\": \"leader\"\n" +
-           "}";
+    private static final String postRequest = "{\n" +
+            "    \"name\": \"morpheus\",\n" +
+            "    \"job\": \"leader\"\n" +
+            "}";
+
 
     public Response getUsers(String id) {
         return getRequestSpecification().when().get(usersURL + "/" + id);
     }
 
-    public Response createUser(ProUser person) {
-        return getRequestSpecification().when().body(person).post(usersURL);
-    }
 
 }

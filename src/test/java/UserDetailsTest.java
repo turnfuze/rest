@@ -1,21 +1,18 @@
-
-
 import dto.PersonDetails;
-        import dto.UserDetails;
-        import httpRequest.Persons;
-        import httpRequest.ProUser;
-        import httpRequest.Users;
-        import io.restassured.path.json.JsonPath;
-        import org.testng.annotations.BeforeTest;
-        import org.testng.annotations.Test;
+import dto.UserDetails;
+import httpRequest.Persons;
+import httpRequest.ProUser;
+import httpRequest.Users;
+import io.restassured.path.json.JsonPath;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
 
-        import static org.testng.Assert.assertEquals;
-
+import static org.testng.Assert.assertEquals;
 
 public class UserDetailsTest {
     private static Users usersTest;
     private static Persons personTest;
-
+    private static ProUser proUser;
 
     @BeforeTest
     public void setUsersTest() {
@@ -23,9 +20,10 @@ public class UserDetailsTest {
     }
 
     @BeforeTest
-    public void setPersonTest() {
-        personTest = new Persons();
-    }
+    public void setPersonTest() {personTest = new Persons();}
+
+    @BeforeTest
+    public void setProUser() {proUser = new ProUser();}
 
     @Test
     public void getUserDetails() {
@@ -52,7 +50,7 @@ public class UserDetailsTest {
     @Test
     public void createUser() {
         ProUser expected = new ProUser("Merbius", "leader", "955", "2022-06-05T15:31:38.233Z");
-        ProUser actual = usersTest.createUser(expected)
+        ProUser actual = proUser.createProUser()
                 .then()
                 .extract()
                 .as(ProUser.class);
@@ -66,10 +64,5 @@ public class UserDetailsTest {
                 .then()
                 .statusCode(404)
                 .extract().jsonPath();
-    }
-
-    @Test
-    public void deleteUser(){
-
     }
 }
